@@ -1,12 +1,15 @@
 from MakeData.DataPic import DataPic as D
-import pandas as pd
-import matplotlib.pyplot as plt 
+from MakeData.OneForAll import OneForAll
 import numpy as np
 import os
 a=D('pic')
-a.SetSize_pic(11,11)
-print(a.AnswerData())
+a.Set_im_size(11,11)
+a.to_Answer()
 a.SetlocalSaveData('1')
-a.PackData(s2D=0)
+a.to_Data(s2D=0)
 saved = np.load(os.path.join('1.npy'))
-a.Show_data(a.b,5,5,(4,4))
+
+print(a.returnData(Data=a.Data,Show=5,im_size=(11,11)).show())
+a.Show_data(a.Data,2,2,im_size=(11,11))
+
+# Me =OneForAll("pic",(28,28))
